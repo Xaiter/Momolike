@@ -1,0 +1,4 @@
+Z:\Archive\Code\Momolike\Momolike\bin\Release\Momolike.dll
+Z:\Archive\Code\Momolike\Momolike\bin\Release\Momolike.pdb
+Z:\Archive\Code\Momolike\Momolike\obj\Release\Momolike.dll
+Z:\Archive\Code\Momolike\Momolike\obj\Release\Momolike.pdb

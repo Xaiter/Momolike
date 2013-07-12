@@ -1,0 +1,9 @@
+C:\Users\Momo\Documents\Momolike\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Momo\Documents\Momolike\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Momo\Documents\Momolike\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Momo\Documents\Momolike\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Momo\Documents\Momolike\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Momo\Documents\Momolike\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Momo\Documents\Momolike\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Momo\Documents\Momolike\obj\Debug\Assembly-CSharp.dll
+C:\Users\Momo\Documents\Momolike\obj\Debug\Assembly-CSharp.pdb
