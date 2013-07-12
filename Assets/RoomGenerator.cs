@@ -10,9 +10,9 @@ namespace Momolike
     public class RoomGenerator : MonoBehaviour
     {
         // Room Constants
-        private static readonly float ROOM_SIZE = 60;
+        private static readonly float ROOM_SIZE = 20;
         private static readonly float ROOM_HEIGHT = 6;
-        private static readonly float HALLWAY_LENGTH = 25;
+        private static readonly float HALLWAY_LENGTH = 10;
         private static readonly float HALLWAY_WIDTH = 10;
         private static readonly float HALLWAY_HEIGHT = 3f;
 
@@ -117,7 +117,15 @@ namespace Momolike
                 else
                     zPos -= HALLWAY_OFFSET_AMOUNT;
 
-                var hallwayComp = CreateRoom<HallwayComponent>(HALLWAY_WIDTH, HALLWAY_LENGTH, HALLWAY_HEIGHT, new Vector3(xPos, 0, zPos));
+
+                HallwayComponent hallwayComp = null;
+                
+                if(direction.Value == Directions.North || direction.Value == Directions.South)
+                    hallwayComp = CreateRoom<HallwayComponent>(HALLWAY_LENGTH, HALLWAY_WIDTH, HALLWAY_HEIGHT, new Vector3(xPos, 0, zPos));
+                else
+                    hallwayComp = CreateRoom<HallwayComponent>(HALLWAY_WIDTH, HALLWAY_LENGTH, HALLWAY_HEIGHT, new Vector3(xPos, 0, zPos));
+
+
                 hallwayComp.SetExit(direction.Value, currentRoom.UnityRoomComponent);
                 hallwayComponents.Add(hallwayComp);
 

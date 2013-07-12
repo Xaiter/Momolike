@@ -56,23 +56,24 @@ namespace Momolike
 
             List<Wall> walls = new List<Wall>();
 
-            walls.AddRange(CreateWall(NorthExit, new Vector3(0, yAdjust, zAdjust), 90));
-            walls.AddRange(CreateWall(SouthExit, new Vector3(0, yAdjust, -zAdjust), 90));
-            walls.AddRange(CreateWall(WestExit, new Vector3(-xAdjust, yAdjust, 0), 0));
-            walls.AddRange(CreateWall(EastExit, new Vector3(xAdjust, yAdjust, 0), 0));
+            walls.AddRange(CreateWall(NorthExit, this.Length, new Vector3(0, yAdjust, zAdjust), 90));
+            walls.AddRange(CreateWall(SouthExit, this.Length, new Vector3(0, yAdjust, -zAdjust), 90));
+            walls.AddRange(CreateWall(WestExit, this.Width, new Vector3(-xAdjust, yAdjust, 0), 0));
+            walls.AddRange(CreateWall(EastExit, this.Width, new Vector3(xAdjust, yAdjust, 0), 0));
 
             Walls = walls.ToArray();
-
             TakeOwnershipOfChildren();
+
+
         }
 
-        protected Wall[] CreateWall(RoomComponent exitRoom, Vector3 wallAdjust, float rotation)
+        protected Wall[] CreateWall(RoomComponent exitRoom, float wallWidth, Vector3 wallAdjust, float rotation)
         {
             if (exitRoom != null)
                 return CreateConnectingWall(exitRoom as HallwayComponent, wallAdjust);
             else
             {
-                var wall = new Wall(Width, Height, rotation);
+                var wall = new Wall(this, wallWidth, Height, rotation);
                 wall.Instance.transform.parent = this.transform;
                 wall.Instance.transform.localPosition = wallAdjust;
                 return new Wall[] { wall };
@@ -119,14 +120,14 @@ namespace Momolike
         {
             Floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
             Floor.transform.parent = this.transform;
-            Floor.transform.localScale = new Vector3(Width, Wall.THICKNESS, Length);
+            Floor.transform.localScale = new Vector3(Length, Wall.THICKNESS, Width);
             Floor.transform.localPosition = new Vector3(0, 0, 0);
             Floor.name = GetRoomNamePrefix() + " Floor";
 
 
             Ceiling = GameObject.CreatePrimitive(PrimitiveType.Cube);
             Ceiling.transform.parent = this.transform;
-            Ceiling.transform.localScale = new Vector3(Width, Wall.THICKNESS, Length);
+            Ceiling.transform.localScale = new Vector3(Length, Wall.THICKNESS, Width);
             Ceiling.transform.localPosition = new Vector3(0, Height + Wall.THICKNESS, 0);
             Ceiling.name = GetRoomNamePrefix() + " Ceiling";
         }
@@ -155,9 +156,9 @@ namespace Momolike
 
 			
 			// Create piece and take ownership
-            var leftPiece = new Wall(sidePieceWidth, Height);
-            var rightPiece = new Wall(sidePieceWidth, Height);
-            var centerPiece = new Wall(hallway.Width - Wall.THICKNESS * 2, centerPieceHeight);
+            var leftPiece = new Wall(this, sidePieceWidth, Height);
+            var rightPiece = new Wall(this, sidePieceWidth, Height);
+            var centerPiece = new Wall(this, hallway.Width - Wall.THICKNESS * 2, centerPieceHeight);
 			TakeOwnershipOfChildren(leftPiece, rightPiece, centerPiece);
 
             

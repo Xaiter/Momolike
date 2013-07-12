@@ -7,21 +7,23 @@ namespace Momolike
 	{
 		// Constants
 		public const float THICKNESS = 1.0f;
-		
-		
+        
+        // Fields
+        private RoomComponent _owner = null;
 		
 		// Properties
 		public GameObject Instance { get; private set; }
 		
+        
 		
 		
 		// Constructors
-		public Wall(float width, float height) : this(width, height, 0)
+		public Wall(RoomComponent owner, float width, float height) : this(owner, width, height, 0)
 		{
-			
+            _owner = owner;
 		}
 		
-		public Wall(float width, float height, float rotation)
+		public Wall(RoomComponent owner, float width, float height, float rotation)
 		{
 			GenerateObject(width, height, rotation);
 		}

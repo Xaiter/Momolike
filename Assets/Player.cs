@@ -17,7 +17,7 @@ namespace Momolike
 
 
         // Public Fields
-        public float movementSpeed = 5.0f;
+        public float movementSpeed = 10.0f;
         public float mouseSensitivity = 5.0f;
         public float jumpSpeed = 1.0f;
         public float upDownRange = 15.0f;
@@ -60,7 +60,7 @@ namespace Momolike
                 _isSprinting = true;
 
             if (_isSprinting)
-                forwardSpeed = forwardSpeed * 1.25f;
+                forwardSpeed = forwardSpeed * 1.35f;
 
             _velocity = forwardSpeed + sideSpeed / 2;
 

@@ -64,11 +64,6 @@
      <Compile Include="Assets\RoomComponent.cs" />
      <Compile Include="Assets\RoomGenerator.cs" />
      <Compile Include="Assets\Wall.cs" />
-     <None Include="Assets\MapGen\obj\Debug\MapGen.csproj.FileListAbsolute.txt" />
-     <None Include="Assets\MapGen\obj\Release\MapGen.csproj.FileListAbsolute.txt" />
- <Reference Include="Momolike">
- <HintPath>Assets\MapGen\obj\Release\Momolike.dll</HintPath>
- </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
